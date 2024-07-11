@@ -82,6 +82,7 @@ let
   QEMU_OPTS = lib.concatStringsSep " " ([
     "-drive if=pflash,format=raw,unit=0,readonly=on,file=${pkgs.OVMF.firmware}"
     "-drive if=pflash,format=raw,unit=1,file=efivars.fd"
+    "-vga std"
   ] ++ builtins.map
     (disk:
       "-drive file=${disk.name}.raw,if=virtio,cache=unsafe,werror=report,format=raw"
